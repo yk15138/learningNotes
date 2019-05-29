@@ -1,21 +1,18 @@
-#docker 学习笔记
+# docker 学习笔记
 
 
-##镜像命令
+## 镜像命令
 ### 查看所有镜像
 > docker images {options} 
 
     -a 查看所有  
     -q 只有id
     
-   ==
 ### 从dockerHub上找镜像
 > docker search {options} ${image} 
 
     -s 点赞数(docker search -s 30 tomcat)
      
-   ==
-
 ### 拉取镜像 --
 > docker pull ${image}  
 
