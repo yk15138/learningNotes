@@ -208,10 +208,9 @@
 
 
 
-## docker 文档
-[docker 文档](http://docs.docker.com)
-## docker hub
-[docker hub](http://hub.docker.com)
+## <a href="http://docs.docker.com" target="_blank">docker 文档</a>
+
+## <a href="http://hub.docker.com" target="_blank">docker hub</a>
 
 ###### 勿在浮沙上面筑高台，出老混迟早是要还的。
     
