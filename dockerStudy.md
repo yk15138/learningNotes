@@ -209,9 +209,9 @@
 
 
 ## docker 文档
-[docker 文档](docs.docker.com)
+[docker 文档](http://docs.docker.com)
 ## docker hub
-[docker hub](hub.docker.com)
+[docker hub](http://hub.docker.com)
 
 ###### 勿在浮沙上面筑高台，出老混迟早是要还的。
     
