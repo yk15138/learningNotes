@@ -139,51 +139,51 @@
 
 
 
-###FROM 从... 继承
+### FROM 从... 继承
 
     FROM scratch 从基类继承
 
-###MAINTAINER  镜像维护者的姓名和邮箱地址
+### MAINTAINER  镜像维护者的姓名和邮箱地址
 
     MAINTAINER yuakang<15589523189@163.com>
 
-###RUN 镜像构建时需要运行的命令
+### RUN 镜像构建时需要运行的命令
 
     RUN yum install -y vim net-toole
 
-###EXPOSE 当前容器对外暴露的端口
+### EXPOSE 当前容器对外暴露的端口
 
     EXPOSE 80
 
-###WORKDIR 默认登录进来的目录
+### WORKDIR 默认登录进来的目录
 
     WORKDIR /usr/local
 
-###ENV 设置环境变量
+### ENV 设置环境变量
 
     ENV JAVA_HOME /home/java
 
-###ADD 将宿主机文件拷贝到容器中，zip会自动解压
+### ADD 将宿主机文件拷贝到容器中，zip会自动解压
 
     ADD dockerfile /usr/local/java
 
-###COPY 类似add，不会解压
+### COPY 类似add，不会解压
 
     ADD dockerfile /usr/local/java
 
-###VOLUME 容器数据卷
+### VOLUME 容器数据卷
 
     VOLUME ["/data1", "data2"]
 
-###CMD 指定容器启动是进行的指令，多个时只有最有一个生效，会被docker后面的指令覆盖掉
+### CMD 指定容器启动是进行的指令，多个时只有最有一个生效，会被docker后面的指令覆盖掉
 
     CMD ["curl", "-s", "http://ip.taobao.com/service/getIpInfo2.php?ip=myip"]
 
-###ENTRYPOINT 类似CMD
+### ENTRYPOINT 类似CMD
 
     ENTRYPOINT ["curl", "-s", "http://ip.taobao.com/service/getIpInfo2.php?ip=myip"]
 
-###ONBUILD 当构建一个被继承的dockerfile时运行命令，会被触发
+### ONBUILD 当构建一个被继承的dockerfile时运行命令，会被触发
 
     ONBUILD RUN echo "hello world"
 
