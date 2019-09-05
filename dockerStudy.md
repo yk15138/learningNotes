@@ -108,6 +108,8 @@
 
 
 
+
+
 ## 容器数据卷
 ### 命令添加
 > docker run {options} -v {宿主机目录}:{容器目录}
@@ -200,13 +202,13 @@
     docker exec -it ${containerId} /bin/bash 操作容器
 
 ### mysql安装
-> docker run --name mysql1 -p 3306:3306 -v /opt/mysql/conf:/etc/mysql/conf.d -v /opt/mysql/logs:/logs -v /opt/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=12345 -d mysql:5.6
+> docker run --name mysql1 -p 3306:3306 -v /opt/mysql/conf:/etc/mysql/conf.d -v /opt/mysql/logs:/logs -v /opt/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6
 
     docker run --name mysql1 -p 3306:3306 
     -v /opt/mysql/conf:/etc/mysql/conf.d
     -v /opt/mysql/logs:/logs
     -v /opt/mysql/data:/var/lib/mysql
-    -e MYSQL_ROOT_PASSWORLD=12345
+    -e MYSQL_ROOT_PASSWORLD=123456
     -d mysql:5.6
 
 ### redis安装

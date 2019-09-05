@@ -12,6 +12,19 @@
 	get <key>
 	exist <key> 是否存在key
 	del <key>
+	getset <key> <value> 获取并重新修改值
+	object encoding <key> 存储类型
+	append <key> <value> 追加
+	getrange <key> <start> <end> 获取从start到end的字符
+	setrange <key> <start> <value> 从start开始覆盖
+
+#### 位图bitmap
+
+```
+setbit <key> <index> 1 给key的第index位为1
+getbit <key> <index> 获取key的第index个字节
+bitop <operater> <key> <key> (<key>) 对多个key执行位运算操作<operater>可以是and or xor not
+```
 
 ####  批量键值对：
 
@@ -26,7 +39,8 @@
 ####   计数：
 
 	incr <key> 某个key自增1
-	incrby <key> <number> 某个key增加number数量、
+	incrby <key> <number> 某个key增加number数量
+	incrbyfloat <key> <number> 增加
 
 
 
@@ -85,8 +99,62 @@
 	zrevrangebyscore <key> <start> <end> 
 	zrem <key> <value> 删除某个value
 
+### HyperLogLog
+
+> 此数据结构可以非常省内存的统计各种计数,pv,uv等.
+
+```
+pfadd <key> <value>(<value>...) 添加
+pfcount <key> 统计
+pfmerge <key> <已经存在的key> <已经存在的key> (<已经存在的key> ...) 合并HyperLogLog
+```
+
 
 
 ###  过期时间
 
 	ttl <key> 获取时间时间离现在秒数s
+	pttl <key> 获取时间时间离现在毫秒数ms
+
+
+
+### 查找键
+
+```
+keys <patten> 查找key
+```
+
+## 持久化
+
+### RDB拍镜像
+
+默认使用的是bgsave会在此目录下创建dump.rdb文件
+
+- 阻塞式
+
+```
+save
+```
+
+- 非阻塞式
+
+> redis会正常接受客户端的请求，会fork()出一个新的子进程来创建rdb文件，处理完之后会发送信号通知他处理完毕。
+
+```
+bgsave
+```
+
+### AOF采用追加的方式保存
+
+> 默认文件appendonly.aof。记录所有的写操作命令，在启动是使用这些命令就可以还原数据库。
+
+> 并不能保证绝对不丢失数据。为了提高效率，系统通常不会将内容直接写入硬盘，而是先将内容写入一个内存缓冲区中，等到缓冲区被填满，或者执行fsync调用和fdatasync调用是才能将存储在缓冲区里面的内容写入磁盘，有可能会丢失。
+
+
+
+
+
+[腾讯云redis文档](https://cloud.tencent.com/developer/doc/1203)：https://cloud.tencent.com/developer/doc/1203
+
+
+

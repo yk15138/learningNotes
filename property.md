@@ -1,0 +1,1 @@
+create table psn(id int,name string,likes array<string>,address map<string,string>) row format delimited fields terminated by ',' collection items terminated by '-' map keys terminated by ':';
